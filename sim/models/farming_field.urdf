@@ -1,0 +1,399 @@
+<?xml version="1.0"?>
+<robot name="farming_field">
+    <!-- Realistic Farming Field with Paddy Plants and Terrain -->
+    
+    <!-- Base Terrain -->
+    <link name="base_terrain">
+        <visual>
+            <geometry>
+                <box size="20.0 20.0 0.1"/>
+            </geometry>
+            <material name="soil">
+                <color rgba="0.4 0.25 0.15 1.0"/>
+                <texture filename="soil_texture.png"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="20.0 20.0 0.1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1000.0"/>
+            <inertia ixx="3333.33" ixy="0" ixz="0" iyy="3333.33" iyz="0" izz="6666.67"/>
+        </inertial>
+    </link>
+    
+    <!-- Paddy Field 1 -->
+    <link name="paddy_field_1">
+        <visual>
+            <geometry>
+                <box size="8.0 6.0 0.05"/>
+            </geometry>
+            <origin xyz="0 0 0.075"/>
+            <material name="water">
+                <color rgba="0.2 0.4 0.8 0.7"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="8.0 6.0 0.05"/>
+            </geometry>
+            <origin xyz="0 0 0.075"/>
+        </collision>
+        <inertial>
+            <mass value="100.0"/>
+            <inertia ixx="200.0" ixy="0" ixz="0" iyy="300.0" iyz="0" izz="500.0"/>
+        </inertial>
+    </link>
+    
+    <joint name="paddy_field_1_joint" type="fixed">
+        <parent link="base_terrain"/>
+        <child link="paddy_field_1"/>
+        <origin xyz="-5 0 0"/>
+    </joint>
+    
+    <!-- Paddy Field 2 -->
+    <link name="paddy_field_2">
+        <visual>
+            <geometry>
+                <box size="8.0 6.0 0.05"/>
+            </geometry>
+            <origin xyz="0 0 0.075"/>
+            <material name="water">
+                <color rgba="0.2 0.4 0.8 0.7"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="8.0 6.0 0.05"/>
+            </geometry>
+            <origin xyz="0 0 0.075"/>
+        </collision>
+        <inertial>
+            <mass value="100.0"/>
+            <inertia ixx="200.0" ixy="0" ixz="0" iyy="300.0" iyz="0" izz="500.0"/>
+        </inertial>
+    </link>
+    
+    <joint name="paddy_field_2_joint" type="fixed">
+        <parent link="base_terrain"/>
+        <child link="paddy_field_2"/>
+        <origin xyz="5 0 0"/>
+    </joint>
+    
+    <!-- Irrigation Channel -->
+    <link name="irrigation_channel">
+        <visual>
+            <geometry>
+                <box size="0.5 20.0 0.3"/>
+            </geometry>
+            <origin xyz="0 0 0.15"/>
+            <material name="water_channel">
+                <color rgba="0.1 0.3 0.6 0.8"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.5 20.0 0.3"/>
+            </geometry>
+            <origin xyz="0 0 0.15"/>
+        </collision>
+        <inertial>
+            <mass value="50.0"/>
+            <inertia ixx="1000.0" ixy="0" ixz="0" iyy="12.5" iyz="0" izz="1000.0"/>
+        </inertial>
+    </link>
+    
+    <joint name="irrigation_channel_joint" type="fixed">
+        <parent link="base_terrain"/>
+        <child link="irrigation_channel"/>
+        <origin xyz="0 0 0"/>
+    </joint>
+    
+    <!-- Paddy Plants Row 1 -->
+    <link name="paddy_plants_row_1">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+            <material name="paddy_green">
+                <color rgba="0.1 0.6 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="paddy_plants_row_1_joint" type="fixed">
+        <parent link="paddy_field_1"/>
+        <child link="paddy_plants_row_1"/>
+        <origin xyz="-2 0 0"/>
+    </joint>
+    
+    <!-- Paddy Plants Row 2 -->
+    <link name="paddy_plants_row_2">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+            <material name="paddy_green">
+                <color rgba="0.1 0.6 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="paddy_plants_row_2_joint" type="fixed">
+        <parent link="paddy_field_1"/>
+        <child link="paddy_plants_row_2"/>
+        <origin xyz="0 0 0"/>
+    </joint>
+    
+    <!-- Paddy Plants Row 3 -->
+    <link name="paddy_plants_row_3">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+            <material name="paddy_green">
+                <color rgba="0.1 0.6 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="paddy_plants_row_3_joint" type="fixed">
+        <parent link="paddy_field_1"/>
+        <child link="paddy_plants_row_3"/>
+        <origin xyz="2 0 0"/>
+    </joint>
+    
+    <!-- Paddy Plants Row 4 (Field 2) -->
+    <link name="paddy_plants_row_4">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+            <material name="paddy_green">
+                <color rgba="0.1 0.6 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="paddy_plants_row_4_joint" type="fixed">
+        <parent link="paddy_field_2"/>
+        <child link="paddy_plants_row_4"/>
+        <origin xyz="-2 0 0"/>
+    </joint>
+    
+    <!-- Paddy Plants Row 5 (Field 2) -->
+    <link name="paddy_plants_row_5">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+            <material name="paddy_green">
+                <color rgba="0.1 0.6 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="paddy_plants_row_5_joint" type="fixed">
+        <parent link="paddy_field_2"/>
+        <child link="paddy_plants_row_5"/>
+        <origin xyz="0 0 0"/>
+    </joint>
+    
+    <!-- Paddy Plants Row 6 (Field 2) -->
+    <link name="paddy_plants_row_6">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+            <material name="paddy_green">
+                <color rgba="0.1 0.6 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.8"/>
+            </geometry>
+            <origin xyz="0 0 0.4"/>
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="paddy_plants_row_6_joint" type="fixed">
+        <parent link="paddy_field_2"/>
+        <child link="paddy_plants_row_6"/>
+        <origin xyz="2 0 0"/>
+    </joint>
+    
+    <!-- Field Boundaries -->
+    <link name="field_boundary_1">
+        <visual>
+            <geometry>
+                <box size="0.2 6.0 0.3"/>
+            </geometry>
+            <origin xyz="0 0 0.15"/>
+            <material name="boundary">
+                <color rgba="0.3 0.2 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.2 6.0 0.3"/>
+            </geometry>
+            <origin xyz="0 0 0.15"/>
+        </collision>
+        <inertial>
+            <mass value="10.0"/>
+            <inertia ixx="30.0" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="30.0"/>
+        </inertial>
+    </link>
+    
+    <joint name="field_boundary_1_joint" type="fixed">
+        <parent link="base_terrain"/>
+        <child link="field_boundary_1"/>
+        <origin xyz="-9 0 0"/>
+    </joint>
+    
+    <link name="field_boundary_2">
+        <visual>
+            <geometry>
+                <box size="0.2 6.0 0.3"/>
+            </geometry>
+            <origin xyz="0 0 0.15"/>
+            <material name="boundary">
+                <color rgba="0.3 0.2 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.2 6.0 0.3"/>
+            </geometry>
+            <origin xyz="0 0 0.15"/>
+        </collision>
+        <inertial>
+            <mass value="10.0"/>
+            <inertia ixx="30.0" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="30.0"/>
+        </inertial>
+    </link>
+    
+    <joint name="field_boundary_2_joint" type="fixed">
+        <parent link="base_terrain"/>
+        <child link="field_boundary_2"/>
+        <origin xyz="9 0 0"/>
+    </joint>
+    
+    <!-- Terrain Features -->
+    <link name="small_hill">
+        <visual>
+            <geometry>
+                <sphere radius="1.0"/>
+            </geometry>
+            <origin xyz="0 0 0.5"/>
+            <material name="grass">
+                <color rgba="0.2 0.5 0.2 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <sphere radius="1.0"/>
+            </geometry>
+            <origin xyz="0 0 0.5"/>
+        </collision>
+        <inertial>
+            <mass value="50.0"/>
+            <inertia ixx="20.0" ixy="0" ixz="0" iyy="20.0" iyz="0" izz="20.0"/>
+        </inertial>
+    </link>
+    
+    <joint name="small_hill_joint" type="fixed">
+        <parent link="base_terrain"/>
+        <child link="small_hill"/>
+        <origin xyz="0 8 0"/>
+    </joint>
+    
+    <!-- Materials -->
+    <material name="soil">
+        <color rgba="0.4 0.25 0.15 1.0"/>
+    </material>
+    
+    <material name="water">
+        <color rgba="0.2 0.4 0.8 0.7"/>
+    </material>
+    
+    <material name="water_channel">
+        <color rgba="0.1 0.3 0.6 0.8"/>
+    </material>
+    
+    <material name="paddy_green">
+        <color rgba="0.1 0.6 0.1 1.0"/>
+    </material>
+    
+    <material name="boundary">
+        <color rgba="0.3 0.2 0.1 1.0"/>
+    </material>
+    
+    <material name="grass">
+        <color rgba="0.2 0.5 0.2 1.0"/>
+    </material>
+    
+</robot>

@@ -1,0 +1,69 @@
+# Denavit-Hartenberg Parameters for AMR Manipulator
+# Joint configuration: shoulder_pan -> shoulder_lift -> upper_arm -> forearm -> wrist_flex -> wrist_rotate
+
+joints:
+  shoulder_pan:
+    a: 0.0        # Link length
+    alpha: 0.0    # Link twist
+    d: 0.0        # Link offset
+    theta: 0.0    # Joint angle (variable)
+    joint_type: "revolute"
+    limits: [-3.14, 3.14]
+    
+  shoulder_lift:
+    a: 0.0
+    alpha: -1.5708  # -90 degrees
+    d: 0.0
+    theta: 0.0
+    joint_type: "revolute"
+    limits: [-3.14, 3.14]
+    
+  upper_arm:
+    a: 0.4        # Upper arm length
+    alpha: 0.0
+    d: 0.0
+    theta: 0.0
+    joint_type: "revolute"
+    limits: [-3.14, 3.14]
+    
+  forearm:
+    a: 0.35       # Forearm length
+    alpha: 0.0
+    d: 0.0
+    theta: 0.0
+    joint_type: "revolute"
+    limits: [-3.14, 3.14]
+    
+  wrist_flex:
+    a: 0.0
+    alpha: -1.5708  # -90 degrees
+    d: 0.0
+    theta: 0.0
+    joint_type: "revolute"
+    limits: [-3.14, 3.14]
+    
+  wrist_rotate:
+    a: 0.0
+    alpha: 0.0
+    d: 0.15       # End effector offset
+    theta: 0.0
+    joint_type: "revolute"
+    limits: [-3.14, 3.14]
+
+# Tool frame offset (from wrist_rotate to end effector tip)
+tool_frame:
+  x: 0.0
+  y: 0.0
+  z: 0.075
+  roll: 0.0
+  pitch: 0.0
+  yaw: 0.0
+
+# Base frame offset (from base_platform to manipulator_base)
+base_frame:
+  x: 0.3
+  y: 0.0
+  z: 0.175
+  roll: 0.0
+  pitch: 0.0
+  yaw: 0.0

@@ -1,0 +1,106 @@
+# Farming Field Configuration
+# Parameters for realistic paddy field simulation
+
+# Field Layout
+field_layout:
+  total_size: 20.0  # meters
+  paddy_field_size: 8.0  # meters
+  field_spacing: 10.0  # meters between fields
+  
+  # Field positions
+  paddy_fields:
+    - position: [-5, 0, 0]
+      size: 8.0
+      water_level: 0.05
+    - position: [5, 0, 0]
+      size: 8.0
+      water_level: 0.05
+
+# Plant Configuration
+plants:
+  spacing: 0.3  # meters between plants
+  row_spacing: 0.4  # meters between rows
+  growth_stages: [0.3, 0.5, 0.7, 0.9, 1.0]  # Growth stages (0-1)
+  
+  # Plant dimensions
+  stem_height: 0.6  # meters
+  stem_radius: 0.005  # meters
+  leaf_length: 0.3  # meters
+  leaf_width: 0.02  # meters
+  panicle_radius: 0.08  # meters
+  
+  # Plant colors
+  colors:
+    stem: [0.2, 0.5, 0.2, 1.0]  # Green
+    leaf: [0.1, 0.6, 0.1, 1.0]  # Dark green
+    panicle: [0.8, 0.7, 0.2, 1.0]  # Golden
+    root: [0.3, 0.2, 0.1, 1.0]  # Brown
+
+# Irrigation System
+irrigation:
+  channel_width: 0.5  # meters
+  channel_depth: 0.3  # meters
+  channel_color: [0.1, 0.3, 0.6, 0.8]  # Dark blue
+
+# Terrain Features
+terrain:
+  # Hills
+  hills:
+    - position: [0, 8, 0]
+      radius_range: [0.8, 1.5]
+      height_range: [0.3, 0.8]
+    - position: [-8, -8, 0]
+      radius_range: [0.8, 1.5]
+      height_range: [0.3, 0.8]
+    - position: [8, -8, 0]
+      radius_range: [0.8, 1.5]
+      height_range: [0.3, 0.8]
+  
+  # Colors
+  colors:
+    soil: [0.4, 0.25, 0.15, 1.0]  # Brown soil
+    water: [0.2, 0.4, 0.8, 0.7]  # Blue water
+    grass: [0.2, 0.5, 0.2, 1.0]  # Green grass
+    boundary: [0.3, 0.2, 0.1, 1.0]  # Brown boundary
+
+# Agricultural Tasks
+agricultural_tasks:
+  # Planting positions
+  planting_positions:
+    - [0, 0, 0.05]  # Center of field
+    - [-2, 0, 0.05]  # Left side
+    - [2, 0, 0.05]  # Right side
+  
+  # Harvesting positions
+  harvesting_positions:
+    - [0, 0, 0.05]
+    - [-2, 0, 0.05]
+    - [2, 0, 0.05]
+  
+  # Irrigation control points
+  irrigation_points:
+    - [0, 0, 0.1]  # Main channel
+    - [-5, 0, 0.1]  # Field 1 inlet
+    - [5, 0, 0.1]  # Field 2 inlet
+
+# Simulation Parameters
+simulation:
+  time_step: 1.0/240.0
+  gravity: [0, 0, -9.81]
+  damping: 0.1
+  friction: 0.1
+  
+  # Camera settings
+  camera:
+    distance: 15.0
+    yaw: 45.0
+    pitch: -30.0
+    target: [0, 0, 0]
+
+# Weather Effects (Future Enhancement)
+weather:
+  wind_speed: 0.0  # m/s
+  wind_direction: 0.0  # degrees
+  temperature: 25.0  # Celsius
+  humidity: 70.0  # percent
+  rainfall: 0.0  # mm/hour

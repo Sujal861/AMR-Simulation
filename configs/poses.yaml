@@ -1,0 +1,60 @@
+# AMR Manipulator Poses Configuration
+# Joint order: shoulder_pan, shoulder_lift, upper_arm, forearm, wrist_flex, wrist_rotate
+
+poses:
+  home:
+    description: "Home position - arm extended forward"
+    joints: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    
+  approach_plant:
+    description: "Approach position for plant interaction"
+    joints: [0.0, -0.5, 0.8, -0.3, 0.0, 0.0]
+    
+  drill_position:
+    description: "Drilling/seeding position"
+    joints: [0.0, -0.8, 1.2, -0.4, 0.0, 0.0]
+    
+  place_seed:
+    description: "Seed placement position"
+    joints: [0.0, -0.6, 1.0, -0.4, 0.0, 0.0]
+    
+  watering_position:
+    description: "Watering position - arm extended down"
+    joints: [0.0, 0.5, -0.8, 0.3, 0.0, 0.0]
+    
+  harvest_position:
+    description: "Harvesting position - arm ready to grasp"
+    joints: [0.0, -0.3, 0.6, -0.3, 0.0, 0.0]
+    
+  maintenance_position:
+    description: "Maintenance access position"
+    joints: [1.57, 0.0, 0.0, 0.0, 0.0, 0.0]
+    
+  storage_position:
+    description: "Storage/rest position"
+    joints: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    
+  survey_position:
+    description: "Survey position - arm raised for observation"
+    joints: [0.0, -0.2, 0.4, -0.2, 0.0, 0.0]
+    
+  emergency_stop:
+    description: "Emergency stop position - safe configuration"
+    joints: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    
+  # Additional AMR-specific poses
+  navigation_ready:
+    description: "Navigation ready - arm tucked for mobility"
+    joints: [0.0, 0.3, -0.6, 0.3, 0.0, 0.0]
+    
+  sensor_clearance:
+    description: "Clear sensor field of view"
+    joints: [0.0, -0.1, 0.2, -0.1, 0.0, 0.0]
+    
+  tool_exchange:
+    description: "Tool exchange position"
+    joints: [1.57, -0.4, 0.8, -0.4, 0.0, 0.0]
+    
+  inspection_position:
+    description: "Inspection position - arm extended for detailed work"
+    joints: [0.0, -0.4, 0.9, -0.5, 0.0, 0.0]

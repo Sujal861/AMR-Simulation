@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<robot name="paddy_plant">
+    <!-- Realistic Paddy Plant Model -->
+    
+    <!-- Main Stem -->
+    <link name="main_stem">
+        <visual>
+            <geometry>
+                <cylinder radius="0.005" length="0.6"/>
+            </geometry>
+            <origin xyz="0 0 0.3"/>
+            <material name="stem_green">
+                <color rgba="0.2 0.5 0.2 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.005" length="0.6"/>
+            </geometry>
+            <origin xyz="0 0 0.3"/>
+        </collision>
+        <inertial>
+            <mass value="0.05"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <!-- Leaf 1 -->
+    <link name="leaf_1">
+        <visual>
+            <geometry>
+                <box size="0.3 0.02 0.005"/>
+            </geometry>
+            <origin xyz="0.15 0 0.4"/>
+            <material name="leaf_green">
+                <color rgba="0.1 0.6 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.3 0.02 0.005"/>
+            </geometry>
+            <origin xyz="0.15 0 0.4"/>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="leaf_1_joint" type="fixed">
+        <parent link="main_stem"/>
+        <child link="leaf_1"/>
+        <origin xyz="0 0 0.2"/>
+    </joint>
+    
+    <!-- Leaf 2 -->
+    <link name="leaf_2">
+        <visual>
+            <geometry>
+                <box size="0.3 0.02 0.005"/>
+            </geometry>
+            <origin xyz="-0.15 0 0.4"/>
+            <material name="leaf_green">
+                <color rgba="0.1 0.6 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.3 0.02 0.005"/>
+            </geometry>
+            <origin xyz="-0.15 0 0.4"/>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="leaf_2_joint" type="fixed">
+        <parent link="main_stem"/>
+        <child link="leaf_2"/>
+        <origin xyz="0 0 0.2"/>
+    </joint>
+    
+    <!-- Leaf 3 -->
+    <link name="leaf_3">
+        <visual>
+            <geometry>
+                <box size="0.3 0.02 0.005"/>
+            </geometry>
+            <origin xyz="0 0.15 0.4"/>
+            <material name="leaf_green">
+                <color rgba="0.1 0.6 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.3 0.02 0.005"/>
+            </geometry>
+            <origin xyz="0 0.15 0.4"/>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="leaf_3_joint" type="fixed">
+        <parent link="main_stem"/>
+        <child link="leaf_3"/>
+        <origin xyz="0 0 0.2"/>
+    </joint>
+    
+    <!-- Leaf 4 -->
+    <link name="leaf_4">
+        <visual>
+            <geometry>
+                <box size="0.3 0.02 0.005"/>
+            </geometry>
+            <origin xyz="0 -0.15 0.4"/>
+            <material name="leaf_green">
+                <color rgba="0.1 0.6 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.3 0.02 0.005"/>
+            </geometry>
+            <origin xyz="0 -0.15 0.4"/>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="leaf_4_joint" type="fixed">
+        <parent link="main_stem"/>
+        <child link="leaf_4"/>
+        <origin xyz="0 0 0.2"/>
+    </joint>
+    
+    <!-- Rice Panicle (Grain Cluster) -->
+    <link name="rice_panicle">
+        <visual>
+            <geometry>
+                <sphere radius="0.08"/>
+            </geometry>
+            <origin xyz="0 0 0.65"/>
+            <material name="rice_golden">
+                <color rgba="0.8 0.7 0.2 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <sphere radius="0.08"/>
+            </geometry>
+            <origin xyz="0 0 0.65"/>
+        </collision>
+        <inertial>
+            <mass value="0.02"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="rice_panicle_joint" type="fixed">
+        <parent link="main_stem"/>
+        <child link="rice_panicle"/>
+        <origin xyz="0 0 0.3"/>
+    </joint>
+    
+    <!-- Root System -->
+    <link name="root_system">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.1"/>
+            </geometry>
+            <origin xyz="0 0 -0.05"/>
+            <material name="root_brown">
+                <color rgba="0.3 0.2 0.1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.1"/>
+            </geometry>
+            <origin xyz="0 0 -0.05"/>
+        </collision>
+        <inertial>
+            <mass value="0.02"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    
+    <joint name="root_system_joint" type="fixed">
+        <parent link="main_stem"/>
+        <child link="root_system"/>
+        <origin xyz="0 0 -0.3"/>
+    </joint>
+    
+    <!-- Materials -->
+    <material name="stem_green">
+        <color rgba="0.2 0.5 0.2 1.0"/>
+    </material>
+    
+    <material name="leaf_green">
+        <color rgba="0.1 0.6 0.1 1.0"/>
+    </material>
+    
+    <material name="rice_golden">
+        <color rgba="0.8 0.7 0.2 1.0"/>
+    </material>
+    
+    <material name="root_brown">
+        <color rgba="0.3 0.2 0.1 1.0"/>
+    </material>
+    
+</robot>
